@@ -1,0 +1,1 @@
+$('[data-submenu]').submenupicker();
