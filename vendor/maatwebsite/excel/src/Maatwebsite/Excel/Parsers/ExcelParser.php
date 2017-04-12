@@ -70,7 +70,7 @@ class ExcelParser {
      * Columns we want to fetch
      * @var array
      */
-    protected $columns = array();
+    protected $columns = [];
 
     /**
      * Row counter
@@ -105,7 +105,7 @@ class ExcelParser {
      * @param array $columns
      * @return SheetCollection
      */
-    public function parseFile($columns = array())
+    public function parseFile($columns = [])
     {
         // Init new sheet collection
         $workbook = new SheetCollection();
@@ -176,7 +176,7 @@ class ExcelParser {
         $this->excel->setActiveSheetIndex($this->w);
 
         // Fetch the labels
-        $this->indices = $this->reader->hasHeading() ? $this->getIndices() : array();
+        $this->indices = $this->reader->hasHeading() ? $this->getIndices() : [];
 
         // Parse the rows
         return $this->parseRows();
@@ -192,7 +192,7 @@ class ExcelParser {
         $this->row = $this->worksheet->getRowIterator($this->defaultStartRow)->current();
 
         // Set empty labels array
-        $this->indices = array();
+        $this->indices = [];
 
         // Loop through the cells
         foreach ($this->row->getCellIterator() as $this->cell)
@@ -368,7 +368,7 @@ class ExcelParser {
         foreach ($rows as $this->row)
         {
             // Limit the results when needed
-            if ( $this->hasReachedLimit() )
+            if ( $this->hasReachedLimitRows() )
                 break;
 
             // Push the parsed cells inside the parsed rows
@@ -407,16 +407,16 @@ class ExcelParser {
     }
 
     /**
-     * Check for the limit
+     * Check for the row limit
      * @return boolean
      */
-    protected function hasReachedLimit()
+    protected function hasReachedLimitRows()
     {
         // Get skip
-        $limit = $this->reader->getLimit();
+        $rowsLimit = $this->reader->getLimitRows();
 
         // If we have a limit, check if we hit this limit
-        return $limit && $this->currentRow > $limit ? true : false;
+        return $rowsLimit && $this->currentRow > $rowsLimit ? true : false;
     }
 
     /**
@@ -428,9 +428,15 @@ class ExcelParser {
         $i = 0;
         $parsedCells = array();
 
+        // Skip the columns when needed
+        $startColumn = $this->reader->getTargetSkipColumns();
+
+        // Limit the columns when needed
+        $endColumn = $this->reader->getTargetLimitColumns();
+
         try {
             // Set the cell iterator
-            $cellIterator = $this->row->getCellIterator();
+            $cellIterator = $this->row->getCellIterator($startColumn, $endColumn);
 
             // Ignore empty cells if needed
             $cellIterator->setIterateOnlyExistingCells($this->reader->needsIgnoreEmpty());
@@ -457,7 +463,7 @@ class ExcelParser {
                 throw $e;
             }
             // make sure that we return an empty CellCollection
-            $parsedCells = array();
+            $parsedCells = [];
         }
 
         // Return array with parsed cells
@@ -667,7 +673,7 @@ class ExcelParser {
      */
     protected function reset()
     {
-        $this->indices = array();
+        $this->indices = [];
         $this->isParsed = false;
     }
 }
