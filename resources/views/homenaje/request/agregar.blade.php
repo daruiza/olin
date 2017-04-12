@@ -334,11 +334,11 @@
 								<div class="col-md-12">
 									<div class="col-md-12 col-md-offset-0 ">
 										{!! Form::radio('state', 1,true) !!}	
-										<span class="glyphicon glyphicon-earphone"> Si. Se gestiono la</span>															
+										<span class="glyphicon glyphicon-earphone"> Procesar llamada</span>															
 									</div>
 									<div class="col-md-12 col-md-offset-0 ">
 										{!! Form::radio('state', 2) !!}	
-										<span class="glyphicon glyphicon-send"> No. Llamar al afiliado</span>															
+										<span class="glyphicon glyphicon-send"> Devolver llamada</span>															
 									</div>
 								</div>
 							</div>

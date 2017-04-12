@@ -236,17 +236,17 @@ class HomRequestController extends Controller {
 					
 				if($date_diff[$i]->y){
 					$date_diff[$i] = $date_diff[$i]->format('%y-%m-%d %h:%i:%s');
-				}
-					
-				if($date_diff[$i]->m){
-					$date_diff[$i] = $date_diff[$i]->format('%m-%d %h:%i:%s');
-				}
-					
-				if($date_diff[$i]->d){
-					$date_diff[$i] = $date_diff[$i]->format('%d %h:%i:%s');
 				}else{
-					$date_diff[$i] = $date_diff[$i]->format('%h:%i:%s');
-				}
+					if($date_diff[$i]->m){
+						$date_diff[$i] = $date_diff[$i]->format('%m-%d %h:%i:%s');
+					}else{
+						if($date_diff[$i]->d){
+							$date_diff[$i] = $date_diff[$i]->format('%d %h:%i:%s');
+						}else{
+							$date_diff[$i] = $date_diff[$i]->format('%h:%i:%s');
+						}
+					}	
+				}	
 					
 				$moduledata['solicitudes'][$i]->diff = $date_diff[$i];
 			}
@@ -298,17 +298,17 @@ class HomRequestController extends Controller {
 					
 				if($date_diff[$i]->y){
 					$date_diff[$i] = $date_diff[$i]->format('%y-%m-%d %h:%i:%s');
-				}
-					
-				if($date_diff[$i]->m){
-					$date_diff[$i] = $date_diff[$i]->format('%m-%d %h:%i:%s');
-				}
-					
-				if($date_diff[$i]->d){
-					$date_diff[$i] = $date_diff[$i]->format('%d %h:%i:%s');
 				}else{
-					$date_diff[$i] = $date_diff[$i]->format('%h:%i:%s');
-				}
+					if($date_diff[$i]->m){
+						$date_diff[$i] = $date_diff[$i]->format('%m-%d %h:%i:%s');
+					}else{
+						if($date_diff[$i]->d){
+							$date_diff[$i] = $date_diff[$i]->format('%d %h:%i:%s');
+						}else{
+							$date_diff[$i] = $date_diff[$i]->format('%h:%i:%s');
+						}
+					}	
+				}	
 					
 				$moduledata['solicitudes'][$i]->diff = $date_diff[$i];					
 			}
