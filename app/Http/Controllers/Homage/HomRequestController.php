@@ -428,7 +428,7 @@ class HomRequestController extends Controller {
 			}
 			$moduledata['states']=$statess;
 						
-			if($request->input()['edit']){
+			if($request->input()['solicitud_id']){
 				
 				$homrequest->orden_service = $request->input()['orden_service'];
 				$homrequest->date_service = $request->input()['date_service'];
@@ -670,6 +670,43 @@ class HomRequestController extends Controller {
 			return response()->json(['respuesta'=>false,'data'=>null]);
 		}
 		return response()->json(['respuesta'=>false,'data'=>null]);
+	}
+
+	public function postPdf(Request $request){
+		$array = array();
+
+
+		$pdf = \PDF::loadView('homenaje.request.hompdf',$array);
+		return $pdf->download('homenaje.pdf');
+
+		return response()->json(['respuesta'=>false,'data'=>null]);
+	}
+
+	public function getExportarpdf($suscription_id = null){
+		
+		$array = array();
+
+		
+		$solicitud=\DB::table('hom_request_x_state')
+		->select('hom_request.*','hom_request_x_state.state_id as state_id')
+		->join('hom_request', 'hom_request_x_state.request_id', '=', 'hom_request.id')
+		->join('hom_state', 'hom_request_x_state.state_id', '=', 'hom_state.id')
+		->where('hom_request_x_state.request_id', $suscription_id)	
+		->orderBy('hom_request_x_state.date','asc')
+		->get();
+
+		$array['homenaje'] = $solicitud;
+		//dd($solicitud);
+
+		
+
+		//consultamos el homenaje
+
+		//$pdf = \PDF::loadView('homenaje.request.hompdf',$array);
+		//return $pdf->download('homenaje.pdf');
+		return view('homenaje.request.hompdf',['homenaje' => $solicitud]);
+
+
 	}
 	
 	public function postConsultartitular(Request $request){

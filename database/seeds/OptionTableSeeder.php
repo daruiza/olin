@@ -85,7 +85,7 @@ class OptionTableSeeder extends Illuminate\Database\Seeder {
 		\DB::table('seg_option')->insert(array(
 				'option'=>'ExportarPDF',
 				'action'=>'exportarpdf',
-				'preference'=>'{"lugar":"escritorio","vista":"listar","icono":"glyphicon glyphicon-save-file"}',
+				'preference'=>'{"lugar":"escritorio","vista":"listar","icono":"glyphicon glyphicon-download"}',
 				'active'=>1
 			)
 		);

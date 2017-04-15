@@ -101,6 +101,21 @@ hom_solicitud.prototype.optVerRespuesta = function(result) {
 	}
 };
 
+hom_solicitud.prototype.opt_pdf = function(controlador,metodo) {
+	if(hom_solicitud.table.rows('.selected').data().length){
+		var datos = new Array();
+  		datos['id'] = hom_solicitud.table.rows('.selected').data()[0].request_id;  		
+  		//seg_ajaxobject.peticionajax($('#form_pdf').attr('action'),datos,"hom_solicitud.optPDFRespuesta");
+  		window.location=metodo+"/" + hom_solicitud.table.rows('.selected').data()[0]['request_id'];
+	}else{
+		$('.alerts').html('<div class="alert alert-info fade in"><strong>¡Seleccione un registro!</strong>Esta opción requiere la selección de un registro!!!.<br><br><ul><li>Selecciona un registro dando click sobre él, luego prueba nuevamente la opción</li></ul></div>');
+	}	
+}
+
+hom_solicitud.prototype.optPDFRespuesta = function(result) {
+	alert('OK3');
+}
+
 hom_solicitud.prototype.consultaRespuestaTitular = function(result) {
 	//verificamos la respuesta
 	if(result.respuesta){

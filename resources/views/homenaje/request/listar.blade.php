@@ -60,6 +60,11 @@
 	            				<div id = "-1" class = "message_mod bnt_lugar" >           				
 	            					<span class="{{$opc['icono']}}" aria-hidden="true" style = "margin-right:5px; color:#666699;" ></span>{{$opc[$key]}}
 	            				</div>
+
+	            			@elseif($opc['accion'] == 'exportarpdf')
+	            				<div class = "message_mod" onclick="javascript:hom_solicitud.opt_pdf('{{json_decode(Session::get('opaplus.usuario.permisos')[Session::get('modulo.id_app')]['modulos'][Session::get('modulo.categoria')][Session::get('modulo.id_mod')]['preferencias'])->controlador}}','{{($opc['accion'])}}')">         				
+	            					<span class="{{$opc['icono']}}" aria-hidden="true" style = "margin-right:5px; color:#666699;" ></span>{{$opc[$key]}}
+	            				</div>
 	            			@else	            			
 	            			<a href="{{url(json_decode(Session::get('opaplus.usuario.permisos')[Session::get('modulo.id_app')]['modulos'][Session::get('modulo.categoria')][Session::get('modulo.id_mod')]['preferencias'])->controlador)}}/{{($opc['accion'])}}/{{Session::get('modulo.id_app')}}/{{Session::get('modulo.categoria')}}/{{Session::get('modulo.id_mod')}}" style = "text-decoration: none;">
 	            				<div class = "message_mod">           				
@@ -124,6 +129,9 @@
     {!! Form::close() !!}    
      <!-- Form en blanco para capturar la url -ver -->
     {!! Form::open(array('id'=>'form_ver','url' => 'solicitud/ver')) !!}
+    {!! Form::close() !!}    
+
+    {!! Form::open(array('id'=>'form_pdf','url' => 'solicitud/pdf')) !!}
     {!! Form::close() !!}    
 	</div>		
 @endsection
