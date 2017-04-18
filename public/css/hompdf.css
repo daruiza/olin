@@ -16,24 +16,43 @@ th {
 
 .cnt_conteiner{
   width: 100%;
-  /*text-align: center;*/
+  text-align: center;
+}
+.cabecera{
+  display: flex;
 }
 .cab1{
-  width: 39%;  
+  width: 35%; 
 }
-.logo{  
+.logo{
+  /*
   background-image: url("image10.png");  
   background-repeat: no-repeat;
   background-size: 90% 90%;
-  
+  */
+  height: 95px;
 }
 .fecha{
-  border: 1px solid black;  
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
 }
 .cab2{
-  width: 61%;  
+  width: 65%; 
 }
 .cab{
-  border: 1px solid black;   
+  border-width: 1px 1px 0px 1px;
+  border-style: solid; 
+}
+.cuerpo1{
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  width: 60%; 
+  text-align: justify;
+}
+.cuerpo2{
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  width: 40%;
+  text-align: justify;
 }
 

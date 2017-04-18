@@ -1,86 +1,63 @@
 <DOCTYPE html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8">
-		<title>Carnet PDF</title>
+		<meta charset="UTF-8">		
 	</head>
 	{{ Html::style('css/hompdf.css')}}	
 	<body>		
 		<div class ="cnt_conteiner">
-			<table style="width:100%">
-				<tr>
-					<th width="34%"></th>
-					<th width="20%"></th>
-					<th width="20%"></th>
-					<th width="26%"></th>
-				</tr>
-				<tr>
-					<td rowspan="6" class="logo" ></td>
-					<td colspan="3" style="text-align: center;">ASESORIA DEL SERVICIO</td>					
-				</tr>
-				<tr>					
-					<td colspan="3" style="text-align: center;">SOLICITUD INICAL DEL SERVICIO</td>
-				</tr>
-				<tr>
-					<td colspan="2">Código {{$homenaje[0]->orden_service}}</td>
-					<td>Versión 01</td>
-				</tr>
-				<tr>					
-					<td colspan="3" style="text-align: center;">HORA DEL REPORTE: {{$homenaje[0]->created_at}} </td>
-				</tr>
-				@if($homenaje[0]->state_id > 1)
-				<tr>
-					<td colspan="3"  style="text-align: center;">
-						<div style="float: left; margin-left: 20px;">SIN TRAMITE:</div>
-						<div style="float: right; margin-right: 20px;">CON TRAMITE: OK</div> 
-					</td>
-				</tr>
-				@else
-				<tr>
-					<td colspan="3"  style="text-align: center;">
-						<div style="float: left; margin-left: 20px;">SIN TRAMITE: OK</div>
-						<div style="float: right; margin-right: 20px;">CON TRAMITE:</div> 
-					</td>
-				</tr>
-				@endif
-				<tr>
-					<td colspan="3"  style="text-align: center;"></td>							
-				</tr>
-				<tr>
-					<td>FECHA: </td>
-					<td colspan="3"  style="text-align: center;"></td>											
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>					
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>					
-				</tr>
 
-			</table>
-
-
-		<!--
 			<div class ="cabecera">
 				<div class = "cab1">
-					<div class = "logo"></div>
-					<div class = "fecha">FECHA:</div>
-
+					<div class = "logo">
+						<img src="{{url('/css/image10.png')}}">
+					</div>
+					<div class = "fecha" style="text-align: justify;">FECHA: {{date("Y-m-d H:i:s")}}</div>
 				</div>
 				<div class = "cab2">
 					<div class = "cab"> ASESORIA DEL SERVICIO</div>
-					
+					<div class = "cab"> SOLICITUD INICAL DEL SERVICIO</div>
+					<div class = "cab" style=" display: flex;"> 
+						<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > Código: {{$homenaje[0]->orden_service}}</div>	
+						<div style="width: 50%;"> Versiòn 01</div>					
+					</div>
+					<div class = "cab"> HORA DEL REPORTE: {{$homenaje[0]->created_at}}</div>
+					@if($homenaje[0]->state_id > 1)
+						<div class = "cab" style=" display: flex; height: 38px;"> 
+							<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > SIN TRAMITE: </div>
+							<div style="width: 50%;"> CON TRAMITE: OK </div>
+						</div>
+					@else
+						<div class = "cab" style=" display: flex; height: 38px;"> 
+							<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > SIN TRAMITE: OK</div>
+							<div style="width: 50%;"> CON TRAMITE: </div>
+						</div>
+					@endif
 				</div>
-
 			</div>
-		-->
-			
+			<div class="cabecera" style="height: 38px;text-align: justify;">
+				<div class = "cuerpo1">TITULAR: {{strtoupper(explode("-", $homenaje[0]->name_headline)[0])}}</div>
+				<div class = "cuerpo2">DOCUMENTO: {{$homenaje[0]->identification_headline}}</div>				
+			</div>
+			<div class="cabecera" style="text-align: justify;">
+				<div class = "cuerpo1">TELEFONOS: {{$homenaje[0]->fhone}} - {{$homenaje[0]->cellfhone}}</div>
+				<div class = "cuerpo2">ENTIDAD: {{strtoupper(explode("-", $homenaje[1]->name_headline)[0])}}</div>
+			</div>
+			<div class="cabecera" style="height: 38px;text-align: justify;">
+				<div class = "cuerpo1">FALLECIDO: {{strtoupper($homenaje[0]->name_homage)}}</div>
+				<div class = "cuerpo2">PARENTESCO</div>
+			</div>
+			<div class="cabecera" style="text-align: justify;">
+				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;">UBICACIÒN: {{$homenaje[0]->location_homage}}</div>		
+			</div>
+			<div class="cabecera" style="height: 19px;">
+				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;"></div>
+			</div>
+			<div class="cabecera" style="text-align: justify;">
+				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;">
+					SEGIMIENTO
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

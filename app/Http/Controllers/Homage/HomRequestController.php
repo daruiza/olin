@@ -696,16 +696,13 @@ class HomRequestController extends Controller {
 		->get();
 
 		$array['homenaje'] = $solicitud;
-		//dd($solicitud);
-
-		
+		//dd($solicitud);		
 
 		//consultamos el homenaje
 
 		//$pdf = \PDF::loadView('homenaje.request.hompdf',$array);
 		//return $pdf->download('homenaje.pdf');
 		return view('homenaje.request.hompdf',['homenaje' => $solicitud]);
-
 
 	}
 	
