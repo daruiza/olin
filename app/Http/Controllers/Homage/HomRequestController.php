@@ -353,7 +353,7 @@ class HomRequestController extends Controller {
 	public function postSave(Request $request){
 		
 		//creación de datos para el formulario de agregar
-		//entidades para el autocomplete
+		//entidades para el autocomplete		
 		try{
 			$companys = OlinCompany::
 			where('active', '=' , Session::get('opaplus.usuario.lugar.active'))
@@ -468,7 +468,7 @@ class HomRequestController extends Controller {
 					//actualización de estado
 					if($request->input()['state'] != $request->input()['state_old']){
 						if($requestAffectedRows){
-							$state = \DB::table('hom_request_x_state')->insert(array('state_id' => $request->input()['state'],'request_id'=>$request->input()['solicitud_id'],'date'=>date("Y-m-d G:i:s"),'description_state' => $request->input()['description']));
+							$state = \DB::table('hom_request_x_state')->insert(array('state_id' => $request->input()['state'],'request_id'=>$request->input()['solicitud_id'],'date'=>date("Y-m-d G:i:s"),'description_state' => $request->input()['descripcion']));
 						}
 					}
 				}catch (\Illuminate\Database\QueryException $e) {
@@ -688,16 +688,15 @@ class HomRequestController extends Controller {
 
 		
 		$solicitud=\DB::table('hom_request_x_state')
-		->select('hom_request.*','hom_request_x_state.state_id as state_id')
+		->select('hom_request.*','hom_request_x_state.state_id as state_id','hom_request_x_state.description_state','hom_request_x_state.date as date_state')
 		->join('hom_request', 'hom_request_x_state.request_id', '=', 'hom_request.id')
 		->join('hom_state', 'hom_request_x_state.state_id', '=', 'hom_state.id')
 		->where('hom_request_x_state.request_id', $suscription_id)	
 		->orderBy('hom_request_x_state.date','asc')
 		->get();
 
-		$array['homenaje'] = $solicitud;
-		//dd($solicitud);		
-
+		$array['homenaje'] = $solicitud;		
+		
 		//consultamos el homenaje
 
 		//$pdf = \PDF::loadView('homenaje.request.hompdf',$array);

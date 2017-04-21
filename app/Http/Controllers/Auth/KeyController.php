@@ -155,7 +155,8 @@ class KeyController extends Controller {
 				}				
 				$aplicaciones = null;
 				try {
-					$aplicaciones=Aplications::find($apps)->where('active',1)->toArray();
+					//$aplicaciones=Aplications::find($apps)->where('active',1)->toArray();
+					$aplicaciones=Aplications::all()->toArray();
 				}catch (ModelNotFoundException $e) {
 					$message = 'Problemas al hallar las aplicaciones de usuario';
 					return Redirect::back()->with('error', $message);
@@ -181,7 +182,7 @@ class KeyController extends Controller {
 					if(!(key_exists($value['modules']['app_id'], $permisos))){
 						$permisos[$value['modules']['app_id']]['modulos'] = array();
 						
-						if(!(key_exists($value['modules']['app_id']['aplicacion'], $permisos))){
+						//if(!(key_exists($value['modules']['app_id']['aplicacion'], $permisos))){
 							foreach ($aplicaciones as $app){
 								if($value['modules']['app_id'] == $app['id']){
 									$permisos[$value['modules']['app_id']]['aplicacion'] = $app['app'];
@@ -189,7 +190,7 @@ class KeyController extends Controller {
 									$permisos[$value['modules']['app_id']]['preferencias'] = $app['preferences'];
 								}									
 							}							
-						}
+						//}
 						
 						
 					}

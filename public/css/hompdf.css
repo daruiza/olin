@@ -30,29 +30,33 @@ th {
   background-repeat: no-repeat;
   background-size: 90% 90%;
   */
-  height: 95px;
+  height: 128px;
 }
 .fecha{
   border-width: 1px 0px 0px 1px;
   border-style: solid;
+  padding: 4px;
 }
 .cab2{
   width: 65%; 
 }
 .cab{
   border-width: 1px 1px 0px 1px;
-  border-style: solid; 
+  border-style: solid;
+  padding: 4px;
 }
 .cuerpo1{
   border-width: 1px 0px 0px 1px;
   border-style: solid;
   width: 60%; 
   text-align: justify;
+  padding: 4px;
 }
 .cuerpo2{
   border-width: 1px 1px 0px 1px;
   border-style: solid;
   width: 40%;
   text-align: justify;
+  padding: 4px;
 }
 

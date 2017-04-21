@@ -17,18 +17,18 @@
 				<div class = "cab2">
 					<div class = "cab"> ASESORIA DEL SERVICIO</div>
 					<div class = "cab"> SOLICITUD INICAL DEL SERVICIO</div>
-					<div class = "cab" style=" display: flex;"> 
-						<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > Código: {{$homenaje[0]->orden_service}}</div>	
-						<div style="width: 50%;"> Versiòn 01</div>					
+					<div class = "cab" style=" display: flex;padding: 0px;"> 
+						<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;padding: 4px;" > Código: {{$homenaje[0]->orden_service}}</div>	
+						<div style="width: 50%;padding: 4px;"> Versiòn 01</div>					
 					</div>
 					<div class = "cab"> HORA DEL REPORTE: {{$homenaje[0]->created_at}}</div>
 					@if($homenaje[0]->state_id > 1)
-						<div class = "cab" style=" display: flex; height: 38px;"> 
+						<div class = "cab" style=" display: flex; height: 46px; padding: 0px;"> 
 							<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > SIN TRAMITE: </div>
 							<div style="width: 50%;"> CON TRAMITE: OK </div>
 						</div>
 					@else
-						<div class = "cab" style=" display: flex; height: 38px;"> 
+						<div class = "cab" style=" display: flex; height: 46px;padding: 0px;"> 
 							<div style="width: 50%; border-style: solid;border-width: 0px 1px 0px 0px;" > SIN TRAMITE: OK</div>
 							<div style="width: 50%;"> CON TRAMITE: </div>
 						</div>
@@ -48,14 +48,21 @@
 				<div class = "cuerpo2">PARENTESCO</div>
 			</div>
 			<div class="cabecera" style="text-align: justify;">
-				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;">UBICACIÒN: {{$homenaje[0]->location_homage}}</div>		
+				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;padding: 4px;">UBICACIÒN: {{$homenaje[0]->location_homage}}</div>		
 			</div>
 			<div class="cabecera" style="height: 19px;">
 				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;"></div>
 			</div>
-			<div class="cabecera" style="text-align: justify;">
-				<div style="border-width: 1px 1px 0px 1px;border-style: solid;width: 100%;">
+			<div class="cabecera" style="text-align: justify;height: 700px;">
+				<div style="border-width: 1px 1px 1px 1px;border-style: solid;width: 100%;">
 					SEGIMIENTO
+					<div style="padding: 10px;">
+					@foreach($homenaje as $hom)
+					<div style="margin: 5px;">
+						{{$hom->date_state}} - {{$hom->description_state}}
+					</div>
+					@endforeach
+					</div>
 				</div>
 			</div>
 		</div>
