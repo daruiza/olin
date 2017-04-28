@@ -41,7 +41,7 @@
 			</div>
 			<div class="cabecera" style="text-align: justify;">
 				<div class = "cuerpo1">TELEFONOS: {{$homenaje[0]->fhone}} - {{$homenaje[0]->cellfhone}}</div>
-				<div class = "cuerpo2">ENTIDAD: {{strtoupper(explode("-", $homenaje[1]->name_headline)[0])}}</div>
+				<div class = "cuerpo2">ENTIDAD: {{strtoupper(explode("-", $homenaje[0]->name_headline)[0])}}</div>
 			</div>
 			<div class="cabecera" style="height: 38px;text-align: justify;">
 				<div class = "cuerpo1">FALLECIDO: {{strtoupper($homenaje[0]->name_homage)}}</div>
