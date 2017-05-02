@@ -299,7 +299,7 @@ class UsuarioController extends Controller {
 			$user->login = 0;
 			$user->id = $request->input()['user_id'];
 						
-			if($request->input()['edit']){
+			if($request->input()['user_id']){
 				//se pretende actualizar el usuario				
 				try {
 					//modificación de password
@@ -355,8 +355,10 @@ class UsuarioController extends Controller {
 					$message = 'El nombre de usuario o el correo ya existe - agregar';
 					return Redirect::to('usuario/agregar')->with('error', $e->getMessage())->withInput()->with('modulo',$moduledata);
 				}				
-			}			
-			
+			}
+
+			$userprofile = UserProfile::where('user_id', $user->id)->get();
+			$userprofile = UserProfile::find($userprofile[0]->id);						
 			$userprofile ->identificacion =  $request->input()['identificacion'];
 			$userprofile ->names =  $request->input()['names'];			
 			$userprofile ->surnames =  $request->input()['surnames'];			
@@ -373,8 +375,12 @@ class UsuarioController extends Controller {
 			
 			if($request->input()['edit']){
 				//se pretende actualizar el usuario				
-				try {					
+				try {
+					$userprofile->save();				
+					/*
 					$userProfileAffectedRows = UserProfile::where('user_id', $user->id)->update(array('identificacion' => $userprofile->identificacion,'names' => $userprofile->names,'surnames' => $userprofile->surnames,'birthdate' => $userprofile->birthdate,'sex' => $userprofile->sex,'adress' => $userprofile->adress,'description' => $userprofile->description,'movil_number' => $userprofile->movil_number,'fix_number' => $userprofile->fix_number,'avatar' => $userprofile->avatar));
+					*/
+
 				}catch (\Illuminate\Database\QueryException $e) {
 					$message = 'La identificación de usuario ya existe - edición';
 					return Redirect::to('usuario/agregar')->with('error', $e->getMessage())->withInput()->with('modulo',$moduledata);

@@ -15,7 +15,7 @@ class CreateSegUserProfileTable extends Migration
     	Schema::create('seg_user_profile', function(Blueprint $table)
     	{
     		$table->increments('id');
-    		$table->integer('identificacion')->unique();;
+    		$table->integer('identificacion');
     		$table->string('names', 60)->nullable();
     		$table->string('surnames', 60)->nullable();
     		$table->date('birthdate')->nullable();
