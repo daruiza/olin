@@ -230,7 +230,7 @@ return [
     	//'JavaScript'      => Laracasts\Utilities\JavaScript\Facades\JavaScript::class,
 		//'PDF'       => Thujohn\Pdf\PdfServiceProvider::class,
     	'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-	'PDF' => Barryvdh\DomPDF\Facade::class,
+	    'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

@@ -1,5 +1,5 @@
 font{
-  font-size: 11px;
+  font-size: 12px;
   /*font-family: 'Raleway', sans-serif;*/
 }
 table {
@@ -17,12 +17,21 @@ th {
 .cnt_conteiner{
   width: 100%;
   text-align: center;
+   height: 157px;  
 }
 .cabecera{
-  display: flex;
+  /*display: flex;*/
+  /*display: -webkit-box;*/
+  float: left; 
+}
+.cuerpo{
+  /*display: flex;*/
+  /*display: -webkit-box;*/
+   float: left;
 }
 .cab1{
-  width: 35%; 
+  width: 35%;
+  float: left;
 }
 .logo{
   /*
@@ -35,28 +44,48 @@ th {
 .fecha{
   border-width: 1px 0px 0px 1px;
   border-style: solid;
-  padding: 4px;
+  padding: 7px;
 }
 .cab2{
-  width: 65%; 
+  width: 65%;
+  float: right;  
+}
+.cab3{
+  float: left;
+  width: 60%;
+}
+.cab4{
+  float: right; 
+  width: 40%;
 }
 .cab{
   border-width: 1px 1px 0px 1px;
   border-style: solid;
   padding: 4px;
+  height: 19px;
 }
 .cuerpo1{
   border-width: 1px 0px 0px 1px;
   border-style: solid;
-  width: 60%; 
+  width: 59%; 
   text-align: justify;
-  padding: 4px;
+  padding: 3px;
+  float: left;
 }
 .cuerpo2{
   border-width: 1px 1px 0px 1px;
   border-style: solid;
   width: 40%;
   text-align: justify;
+  padding: 3px;
+  float: right; 
+}
+.cuerpo50{
+  border-width: 0px 0px 1px 1px;
+  border-style: solid;
+  width: 50%; 
+  text-align: justify;
   padding: 4px;
 }
+
 

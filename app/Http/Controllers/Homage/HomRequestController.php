@@ -695,13 +695,12 @@ class HomRequestController extends Controller {
 		->orderBy('hom_request_x_state.date','asc')
 		->get();
 
-		$array['homenaje'] = $solicitud;		
-		
+		$array['homenaje'] = $solicitud;				
 		//consultamos el homenaje
 
-		//$pdf = \PDF::loadView('homenaje.request.hompdf',$array);
-		//return $pdf->download('homenaje.pdf');
-		return view('homenaje.request.hompdf',['homenaje' => $solicitud]);
+		$pdf = \PDF::loadView('homenaje.request.hompdf2',$array);
+		return $pdf->download(Session::get('opaplus.usuario.name').'.pdf');
+		//return view('homenaje.request.hompdf2',['homenaje' => $solicitud]);
 
 	}
 	
