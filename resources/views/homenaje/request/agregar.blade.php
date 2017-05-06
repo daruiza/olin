@@ -183,9 +183,7 @@
 										@endif
 										
 									</div>								
-								</div>								
-								
-								
+								</div>
 							</div>
 							
 							<div class="tab-pane fade" id="tab2">
@@ -244,7 +242,7 @@
 							<div class="tab-pane fade" id="tab3">
 							
 								<div class="form-group">
-									{!! Form::label('identification_homenaje', 'Identificaión', array('class' => 'col-md-4 control-label')) !!}							
+									{!! Form::label('identification_homenaje', 'Identificación', array('class' => 'col-md-4 control-label')) !!}							
 									<div class="col-md-12">
 										@if(Session::get('_old_input.solicitud_id'))
 											@if(Session::get('_old_input.identification_homenaje'))
