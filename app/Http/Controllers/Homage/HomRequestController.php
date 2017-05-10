@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Homage;
 
+use Carbon\Carbon;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class HomRequestController extends Controller {
 	}
 	
 	public function getIndex($id=null, $modulo=null, $descripcion= null, $id_aplicacion = null, $categoria = null){
-		//Modo de evitar que otros roles ingresen por la url
+		//Modo de evitar que otros roles ingresen por la url		
 		if(is_null($id)) return Redirect::to('/')->with('error', 'Este modulo no se debe alcanzar por url, solo es valido desde las opciones del menú');
 		//preparación de los datos
 		$moduledata['id']=$id;

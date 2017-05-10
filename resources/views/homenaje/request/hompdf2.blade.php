@@ -19,7 +19,7 @@
 					<div class = "cab"> <b>SOLICITUD INICAL DEL SERVICIO</b></div>
 					<div class = "cab" > 
 						<div style="width: 50%;float: left;"> 
-							<div style="border-width: 0px 1px 0px 0px;border-style: solid;">CÓDIGO: {{$homenaje[0]->orden_service}}</div>
+							<div style="border-width: 0px 1px 0px 0px;border-style: solid;">CÓDIGO: F7-PR1PAU</div>
 						</div>
 						<div style="width: 50%;float: right;">
 							<div style="">VERSIÓN 01</div>
@@ -28,10 +28,22 @@
 					<div class = "cab"><font> HORA DEL REPORTE</font>: {{$homenaje[0]->created_at}}</div>
 					<div class = "cab" style=" height: 36px;"> 
 						<div style="width: 50%;float: left; height: 35px; border-width: 0px 1px 0px 0px;border-style: solid; ">
-							<div style="">SIN TRAMITE: </div>
+							<div style="">SIN TRAMITE: </div>							
+						</div>
+						<div style="float: right;margin-right: 68px;margin-top: -8px !important;">
+							am
+						</div>
+						<div style="float: right;margin-right: 20px;margin-top: -8px !important;">
+							pm
 						</div>
 						<div style="width: 50%;float: right;height: 35px;">
 							<div style="">CON TRAMITE:</div>
+						</div>
+						<div style="float: right;margin-right: -390px;margin-top: -8px !important;">
+							am
+						</div>
+						<div style="float: right;margin-right: -438px;margin-top: -8px !important;">
+							pm
 						</div>
 					</div>
 
@@ -61,7 +73,7 @@
 					<font>FALECIDO:</font>  {{strtoupper($homenaje[0]->name_homage)}}
 				</div>
 				<div style="width: 35%;float: right; margin:1px">
-					<font>PARENESCO:</font> 
+					<font>PARENTESCO:</font> 
 				</div>
 			</div>
 			<div class="cab">
@@ -76,7 +88,7 @@
 			</div>	
 			<div class="cab" style="border-width: 1px 1px 1px 1px;border-style: solid; height: 450px;">
 				<div style="width: 100%;float: left;">
-					SEGIMIENTO
+					SEGUIMIENTO
 					<div style="padding: 10px;">
 					@foreach($homenaje as $hom)
 					<div style="margin: 5px;">
