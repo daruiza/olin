@@ -409,6 +409,8 @@ class UsuarioController extends Controller {
 				}catch (\Illuminate\Database\QueryException $e) {
 					$message = 'La identificación de usuario ya existe - edición';
 					return Redirect::back()->with('error', $e->getMessage())->withInput()->with('modulo',$moduledata);
+					//borrar el usuario recien creado, fallo el guardado del perfil de usuario
+					User::destroy($user->id);
 					//return Redirect::back()->withErrors($message);
 				}
 				return Redirect::back()->with('modulo',$moduledata)->with('message', 'Usuario creado adecuadamente');
