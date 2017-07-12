@@ -236,7 +236,7 @@ class UsuarioController extends Controller {
 	}
 	//función para guardar usuarios con su perfil
 	public function postSave(Request $request){
-				
+		
 		$checkbox = Array();
 		foreach($request->input() as $key=>$value){
 			if(strpos($key,$request->input()['mod_id']) !== false) $checkbox[$key] = $value;			
@@ -291,14 +291,14 @@ class UsuarioController extends Controller {
 			$user->name = $request->input()['name'];
 			$user->ip = $request->server()['REMOTE_ADDR'];
 			$user->email = $request->input()['email'];
-			$user->password = '0000';
+			$user->password = '0000';//passwors automatico
 			if(!empty($request->input()['password'])){
 				$user->password = $request->input()['password'];					
 			}			
 			$user->rol_id = $request->input()['rol'];
 			$user->login = 0;
 			$user->id = $request->input()['user_id'];
-						
+
 			if($request->input()['user_id']){
 				//se pretende actualizar el usuario				
 				try {
@@ -340,7 +340,7 @@ class UsuarioController extends Controller {
 					$message = 'El nombre de usuario o el correo ya existe - editar';
 					return Redirect::to('usuario/agregar')->with('error', $e->getMessage())->withInput()->with('modulo',$moduledata);
 				}
-			}else{
+			}else{				
 				try {
 					//guardado de usuario
 					$user->save();
@@ -356,9 +356,9 @@ class UsuarioController extends Controller {
 					return Redirect::to('usuario/agregar')->with('error', $e->getMessage())->withInput()->with('modulo',$moduledata);
 				}				
 			}
-
-			$userprofile = UserProfile::where('user_id', $user->id)->get();
-			$userprofile = UserProfile::find($userprofile[0]->id);						
+			
+			//$userprofile = UserProfile::where('user_id', $user->id)->get();			
+			//$userprofile = UserProfile::find($userprofile[0]->id);						
 			$userprofile ->identificacion =  $request->input()['identificacion'];
 			$userprofile ->names =  $request->input()['names'];			
 			$userprofile ->surnames =  $request->input()['surnames'];			
@@ -372,7 +372,7 @@ class UsuarioController extends Controller {
 			$userprofile ->location =  57;
 			$userprofile ->avatar =  'default.png';
 			$userprofile ->user_id =  $user->id;			
-			
+						
 			if($request->input()['edit']){
 				//se pretende actualizar el usuario				
 				try {
