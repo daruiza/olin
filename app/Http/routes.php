@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -23,19 +24,6 @@ Route::get('recuperar_contrasenia/{user}/{psw}',[
 	'uses' => 'Auth\KeyController@getRecoverpsw',
 	'as' => 'recoverPassword',		
 ]);
-
-Route::get('pdf', function(){
-    $html = '<html><body>'
-	    . '<p>Put your html here, or generate it with your favourite '
-	    . 'templating system.</p>'
-	    . '</body></html>';
-	return $html;
-    //return \PDF::load($html, 'A4', 'portrait')->show();
-    
-});
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -65,15 +53,9 @@ Route::group(['middleware' => 'guest'], function () {
 		'as' => 'UserPerfil'
 	]);
 	Route::get('buzon_usuario',[
-			'uses' => 'Security\UserController@getBuzon',
-			'as' => 'UserMailBox'
-	]);
-	/*
-	Route::get('/{id}', function ($id) {
-		return 'User '.$id;
-	});	
-	*/	
-
+		'uses' => 'Security\UserController@getBuzon',
+		'as' => 'UserMailBox'
+	]);	
 });
 
 Route::controllers([
@@ -94,7 +76,5 @@ Route::controllers([
 	'estado' => 'Homage\HomStateController',
 	'solicitud' => 'Homage\HomRequestController',
 	'directorio' => 'Homage\HomReciverController',	
-	// 'password' => 'Auth\PasswordController',
-	
 ]);
 
