@@ -57,18 +57,18 @@ seg_usuario.prototype.optVerRespuesta = function(result) {
 	}
 			
 	$("#user_modal .modal-body .row_izq").html('<div class="col-md-6" >Nombres: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].names+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Apellidos: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].surnames+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Apellidos: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].surnames+'</div>');
 	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Identificación: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].identificacion+'</div>');				
 	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Email: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].email+'</div>');
 	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Dirección: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].adress+'</div>');
 	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Movil: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].movil_number+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Fijo: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].fix_number+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Fecha Nacimiento: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].birthdate+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Edad: </div><div class="col-md-6" >'+edad+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Genero: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].sex+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Descripcion: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].description+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Usuario: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].name+'</div>');
-	$("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Rol: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].rol+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Fijo: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].fix_number+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Fecha Nacimiento: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].birthdate+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Edad: </div><div class="col-md-6" >'+edad+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Genero: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].sex+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Descripcion: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].description+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Usuario: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].name+'</div>');
+	// $("#user_modal .modal-body .row_izq").html($("#user_modal .modal-body .row_izq").html()+'<div class="col-md-6" >Rol: </div><div class="col-md-6" >'+seg_usuario.table.rows('.selected').data()[0].rol+'</div>');
 	
 	//aplicaciones
 	if(result.respuesta){

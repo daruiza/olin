@@ -162,46 +162,10 @@
 	        "ajax": "{{url('usuario/listarajax')}}",	       
 	        "columns": [				   
 	            { "data": "names"},
-	            { "data": "surnames","visible": false },	            
 	            { "data": "identificacion" },
 	            { "data": "email" },	            
 	            { "data": "adress"},
-	            { "data": "movil_number"},	            
-	            { "data": "fix_number","visible": false },
-	            { "data": "birthdate",
-		           "render":function(data, type, row){			           
-		        	   	var fechaActual = new Date()
-	          			var diaActual = fechaActual.getDate();
-	            		var mmActual = fechaActual.getMonth() + 1;
-	            		var yyyyActual = fechaActual.getFullYear();
-	            		FechaNac = row.birthdate.split("-");
-	            		var yyyyCumple = FechaNac[0];
-	            		var mmCumple = FechaNac[1];
-	            		var diaCumple = FechaNac[2];
-	            			            		
-	            		//retiramos el primer cero de la izquierda
-	            		if (mmCumple.substr(0,1) == 0) {
-	            		mmCumple= mmCumple.substring(1, 2);
-	            		}
-	            		//retiramos el primer cero de la izquierda
-	            		if (diaCumple.substr(0, 1) == 0) {
-	            		diaCumple = diaCumple.substring(1, 2);
-	            		}
-	            		var edad = yyyyActual - yyyyCumple;
-	            		//validamos si el mes de cumpleaños es menor al actual
-	            		//o si el mes de cumpleaños es igual al actual
-	            		//y el dia actual es menor al del nacimiento
-	            		//De ser asi, se resta un año
-	            		if ((mmActual < mmCumple) || (mmActual == mmCumple && diaActual < diaCumple)) {
-	            		edad--;
-	            		}
-	            		return edad;
-	            		
-		           },
-		           "visible": false },
-	            { "data": "birthdate","visible": false },	            	            
-	            { "data": "sex","visible": false },	            
-	            { "data": "rol","visible": false }	            
+	            { "data": "movil_number"}	            	                    
 	        ],	       
 	        "language": {
 	            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
@@ -212,23 +176,23 @@
                 "aButtons": [
                     {
                         "sExtends": "copy",
-                        "mColumns": [0,1,2,3,4,5,6,7,8,9,10],
+                        "mColumns": [0,1,2,3,4],
                         "sTitle": "{{Session::get('modulo.modulo')}}"
                     },
                     {
                         "sExtends": "csv",
-                        "mColumns": [0,1,2,3,4,5,6,7,8,9,10],
+                        "mColumns": [0,1,2,3,4],
                         "sTitle": "{{Session::get('modulo.modulo')}}"
                     },
                     {
                         "sExtends": "xls",
-                        "mColumns": [0,1,2,3,4,5,6,7,8,9,10],
+                        "mColumns": [0,1,2,3,4],
                         "sTitle": "{{Session::get('modulo.modulo')}}",
                         "sFileName": "*.xls"
                     },
                     {
                         "sExtends": "pdf",
-                        "mColumns": [0, 2, 3, 4, 5],
+                        "mColumns": [0, 1, 2, 3, 4],
                         "sTitle": "{{Session::get('modulo.modulo')}}"                        
                     }                    
                 ]

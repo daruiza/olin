@@ -126,7 +126,7 @@ class UsuarioController extends Controller {
 	public function postBuscar(Request $request){		
 				
 		$url = explode("/", Session::get('_previous.url'));
-		$moduledata['fillable'] = ['Nombre','Apellidos','Identificación','Correo Electronico','Dirección','Movil','Fijo','Edad','Fecha Nacimiento','Genero','Rol'];
+		$moduledata['fillable'] = ['Nombre','Identificación','Correo Electronico','Dirección','Movil'];
 		//estas opciones se usaran para pintar las opciones adecuadamente con respecto al modulo
 		$moduledata['modulo'] = $url[count($url)-4];
 		$moduledata['id_app'] = $url[count($url)-2];
@@ -156,7 +156,7 @@ class UsuarioController extends Controller {
 	}
 	public function getListar(){
 		//las siguientes dos lineas solo son utiles cuando se refresca la pagina, ya que al refrescar no se pasa por el controlador
-		$moduledata['fillable'] = ['Nombre','Apellidos','Identificación','Correo Electronico','Dirección','Movil','Fijo','Edad','Fecha Nacimiento','Genero','Rol'];
+		$moduledata['fillable'] = ['Nombre','Identificación','Correo Electronico','Dirección','Movil'];
 		//recuperamos las variables del controlador anterior ante el echo de una actualización de pagina
 		$url = explode("/", Session::get('_previous.url'));
 		
